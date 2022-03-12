@@ -57,6 +57,7 @@ function New-ConnectedVM
       foreach($computer in $ComputerName)
       {
         Write-Verbose "ParameterSetName is '$($PSCmdlet.ParameterSetName)'"
+        if ((Get-Module hyper-v) -ne $true) {Import-Module hyper-v}
 
         if($PSCmdlet.ParameterSetName -eq 'name')
         {
